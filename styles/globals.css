@@ -15,12 +15,64 @@ a {
   box-sizing: border-box;
 }
 
+.sidenav {
+  padding: 10px;
+  margin: 18px 0;
+  border-radius: 5px;
+  color: black;
+}
+
+.sidenav:hover {
+  transition: 0.2s;
+  background-color: rgb(225, 225, 225);
+  cursor: pointer;
+}
+
+.button {
+  /* text-transform: lowercase; */
+  background-image: linear-gradient(90deg, rgb(207, 82, 37), rgb(207, 40, 37))
+}
+
+.shadow {
+  box-shadow: 0px;
+  transition: box-shadow 1s;
+}
+
+.shadow:hover {
+  box-shadow: 0 15px 15px 2px lightgrey;
+  transition: box-shadow 1l ease-in-out 0.8s;
+}
+
+.form {
+  padding: 40px;
+  justify-content: center;
+  border-radius: 10px;
+  min-width: 400;
+  max-width: 1000;
+  margin: 20px auto;
+  background-color: #f3f3f3;
+}
+
+.container-card {
+  cursor: pointer;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.code-container {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 20px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    /* color-scheme: dark; */
   }
   body {
-    color: white;
-    background: black;
+    /* color: white; */
+    /* background: black; */
   }
 }

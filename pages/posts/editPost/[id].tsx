@@ -4,7 +4,7 @@ import React, { MouseEvent, useEffect, useState } from "react";
 import { getSinglePost, updatePost } from "../../../features/postSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 
-export default function editPost() {
+export default function EditPost() {
   const dispatch = useAppDispatch();
   const { singlePost } = useAppSelector((state) => state.post);
   const router = useRouter();

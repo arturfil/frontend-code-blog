@@ -1,9 +1,9 @@
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import React, { MouseEvent, useState } from "react";
-import { createPost } from "../../features/postSlice";
-import { useAppDispatch } from "../../store/hooks";
+import { createPost } from "../../../features/postSlice";
+import { useAppDispatch } from "../../../store/hooks";
 
-function addPost() {
+function AddPost() {
   const dispatch = useAppDispatch();
   const [post, setPost] = useState({
     title: "",
@@ -91,4 +91,4 @@ function addPost() {
   );
 }
 
-export default addPost;
+export default AddPost;

@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Typography variant="h4" fontWeight={600} marginBottom={5}>
-        Posts
+        Posts - Updated
       </Typography>
       {posts && posts.map((post) => (
           <div key={post.id}>

@@ -21,7 +21,7 @@ function SinglePost() {
 
   return (
     <> 
-        <Typography marginBottom={3} fontWeight={600} variant="h4">{singlePost?.title}</Typography>
+        <Typography marginBottom={3} fontWeight={600} variant="h4">{singlePost ? singlePost.title : "Post not fetched"}</Typography>
         {singlePost ? <CodeContainer post={singlePost} /> : null}
     </>
   );

@@ -12,14 +12,14 @@ const Home: NextPage = () => {
   const dispatch = useAppDispatch();
   const { posts } = useAppSelector((state) => state.post);
 
-  useEffect(() => {
+  useEffect(() => { 
     dispatch(getAllPosts());
   }, []);
 
   return (
     <>
       <Typography variant="h4" fontWeight={600} marginBottom={5}>
-        Posts - Updated
+        Posts
       </Typography>
       {posts && posts.map((post) => (
           <div key={post.id}>

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import agent from "../helpers/agent";
 import { Post } from "../interfaces/Post";
 
 export const slice = "";
@@ -22,7 +23,7 @@ export const getAllPosts = createAsyncThunk<Post[]>(
     "post/getAllBlogs",
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get("http://localhost:8080/api/v1/posts");
+            const response = await agent.get("/posts");
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({error})
@@ -34,7 +35,7 @@ export const getSinglePost = createAsyncThunk<Post, string | any>(
     "post/getSinglePost",
     async (id, thunkAPI) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/posts/post/${id}`);
+            const response = await agent.get(`/posts/post/${id}`);
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({error});
@@ -46,7 +47,7 @@ export const createPost = createAsyncThunk<Post, Object>(
     "post/createPost",
     async (data, thunkAPI) => {
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/posts/post`, JSON.stringify(data));
+            const response = await agent.post(`/posts/post`, JSON.stringify(data));
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({error})
@@ -59,7 +60,7 @@ export const updatePost = createAsyncThunk<Post, Post|any>(
     async (data, thunkAPI) => {
         const {id, ...obj} = data
         try {
-            const response = await axios.put(`http://localhost:8080/api/v1/posts/post/${id}`, data);
+            const response = await agent.put(`/posts/post/${id}`, data);
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({error});

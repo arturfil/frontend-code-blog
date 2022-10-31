@@ -100,7 +100,7 @@ export default function EditPost() {
               variant="contained"
               disableElevation
             >
-              Add Post
+              Update Post
             </Button>
           </Grid>
         </Grid>

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
 import agent from "../helpers/agent";
 import { Post } from "../interfaces/Post";
 
@@ -55,14 +55,15 @@ export const createPost = createAsyncThunk<Post, Object>(
     }
 )
 
-export const updatePost = createAsyncThunk<Post, Post|any>(
+export const updatePost = createAsyncThunk<Post, Object|any>(
     "post/updatePost",
     async (data, thunkAPI) => {
         const {id, ...obj} = data
         try {
-            const response = await agent.put(`/posts/post/${id}`, data);
+            const response:any = await agent.put(`/posts/post/${data.id}`, JSON.stringify(obj));
             return response.data;
-        } catch (error) {
+        } catch (error:any) {
+            console.log("ERROR", error);
             return thunkAPI.rejectWithValue({error});
         }
     }

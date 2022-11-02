@@ -12,18 +12,13 @@ function SideDrawer() {
 
   return (
     <Grid
+      className="side-drawer"
       item
-      xs={display ? 6 : 0}
+      xs={display ? 2 : 0}
+      sm={display ? 2 : 0}
       md={display ? 2 : 0}
-      sx={{
-        py: 3,
-        px: 3,
-        display: { xs: 6, md: 2 },
-        minHeight: "100vh",
-        color: "black",
-        boxShadow: "0 2px 2px 2px lightgrey",
-        fontWeight: 600,
-      }}
+      lg={display ? 2 : 0}
+      sx={{display: { xs: 6, md: 2 }}}
     >
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <KeyboardDoubleArrowLeftIcon onClick={toggleMenu} />
@@ -69,7 +64,7 @@ function SideDrawer() {
                 }}
                 sx={{ flexDirection: "column" }}
               >
-                Edit
+                Log In
               </Grid>
             </Grid>
           </Grid>

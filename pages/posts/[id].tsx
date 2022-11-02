@@ -17,7 +17,7 @@ function SinglePost() {
     return () => {
         dispatch(clearSinglePost)
     };
-  }, []);
+  }, [id]);
 
   return (
     <> 

@@ -18,7 +18,7 @@ a {
 .sidenav {
   padding: 10px;
   margin: 18px 0;
-  border-radius: 5px;
+  border-radius: 10px;
   color: black;
 }
 
@@ -34,7 +34,7 @@ a {
 }
 
 .shadow {
-  box-shadow: 0px;
+  box-shadow: 0px 5px 5px 4px rgb(215, 222, 231);
   transition: box-shadow 1s;
 }
 
@@ -44,7 +44,8 @@ a {
 }
 
 .form {
-  padding: 40px;
+  padding: 40px 20px;
+  display: flex;
   justify-content: center;
   border-radius: 10px;
   min-width: 400;
@@ -55,14 +56,24 @@ a {
 
 .container-card {
   cursor: pointer;
-  border: 1px solid lightgrey;
   border-radius: 8px;
-  padding: 20px;
   margin: 20px;
 }
 
+.side-drawer {
+  padding: 18px;
+  min-height: 100vh;
+  color: black;
+  box-shadow: 0 2px 2px 2px lightgrey;
+  font-weight: 600;
+}
+
+.card-image {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
 .code-container {
-  border: 1px solid lightgrey;
   border-radius: 8px;
   padding: 20px;
 }
@@ -74,5 +85,11 @@ a {
   body {
     /* color: white; */
     /* background: black; */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .side-drawer {
+    display: none;
   }
 }

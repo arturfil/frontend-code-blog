@@ -15,9 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
         <link rel="shortcut icon" href="/favicon.ico" />
-        <Grid container>
+        <Grid container>            
           <SideDrawer/>
-          <Grid item xs={10}>
+          <Grid item sx={{display: "flex", margin: "0 auto"}} xs={10}>
             <Grid sx={{display: "flex", flexDirection: "column", margin: "0 auto"}} item xs={9}>
               <ToastContainer theme="colored" position='bottom-right'/>
               <Container sx={{marginTop: 10}}>

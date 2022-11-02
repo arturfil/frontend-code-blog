@@ -12,19 +12,7 @@ export default function EditPost() {
   
   useEffect(() => {
     dispatch(getSinglePost(id));
-  }, [id]);
-
-  useEffect(() => {
-    setPostInitialState();
-  },[singlePost])
-  
-  const [post, setPost] = useState({
-    id: "",
-    title: "",
-    author: "",
-    content: "",
-    category: "",
-  });
+  }, [id, dispatch]);
 
   const setPostInitialState = () => {
     if (!singlePost) return
@@ -36,6 +24,19 @@ export default function EditPost() {
         category: singlePost.category,
     })
   }
+  
+  useEffect(() => {
+    setPostInitialState();
+  },[singlePost, setPostInitialState])
+  
+  const [post, setPost] = useState({
+    id: "",
+    title: "",
+    author: "",
+    content: "",
+    category: "",
+  });
+
 
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

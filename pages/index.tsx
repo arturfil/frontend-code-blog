@@ -31,10 +31,10 @@ const Home: NextPage = () => {
       <Grid container spacing={3}>
         {posts &&
           posts.map((post:any) => (
-            <Grid item mt={2} xs={12} sm={6} md={4} lg={3} key={post.id}>
+            <Grid item mt={2} xs={12} sm={6} md={4} lg={4} xl={3} key={post.id}>
               <Link href={`/posts/${post.id}`}>
                   <Grid className="container-card shadow">
-                    {/* <Image className="card-image" src={image} width={400} height={300} alt={post.title}/> */}
+                    <Image className="card-image" src={image} width={400} height={300} alt={post.title}/>
                     <Grid sx={{padding: "0 20px"}}>
                       <Typography sx={{overflow: "hidden" ,textOverflow: "ellipsis", whiteSpace: "nowrap"}} fontWeight={600}>
                         {post.title}

@@ -14,6 +14,10 @@ export default function EditPost() {
     dispatch(getSinglePost(id));
   }, [id, dispatch]);
 
+  useEffect(() => {
+    setPostInitialState();
+  },[singlePost])
+
   const setPostInitialState = () => {
     if (!singlePost) return
     setPost({
@@ -25,9 +29,7 @@ export default function EditPost() {
     })
   }
   
-  useEffect(() => {
-    setPostInitialState();
-  },[singlePost, setPostInitialState])
+  
   
   const [post, setPost] = useState({
     id: "",

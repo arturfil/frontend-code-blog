@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       <Grid container spacing={3}>
         {posts &&
           posts.map((post) => (
-            <Grid mt={2} xs={12} sm={6} md={4} lg={3} key={post.id}>
+            <Grid item mt={2} xs={12} sm={6} md={4} lg={3} key={post.id}>
               <Link href={`/posts/${post.id}`}>
                   <Grid className="container-card shadow">
                     <Image className="card-image" src={image} width={400} height={300} />

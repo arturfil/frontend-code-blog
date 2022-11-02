@@ -15,9 +15,7 @@ function SideDrawer() {
       className="side-drawer"
       item
       xs={display ? 2 : 0}
-      sm={display ? 2 : 0}
       md={display ? 2 : 0}
-      lg={display ? 2 : 0}
       sx={{display: { xs: 6, md: 2 }}}
     >
       <div style={{ display: "flex", justifyContent: "flex-end" }}>

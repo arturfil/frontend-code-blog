@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify'
 
 // styles
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import 'highlight.js/styles/base16/dracula.css'
 import { Container } from '@mui/system'
 
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <SideDrawer/>
           <Grid item sx={{display: "flex", margin: "0 auto"}} xs={10}>
             <Grid sx={{display: "flex", flexDirection: "column", margin: "0 auto"}} item xs={9}>
-              <ToastContainer theme="colored" position='bottom-right'/>
+              <ToastContainer theme="colored" position='top-right'/>
               <Container sx={{marginTop: 10}}>
                 <Component {...pageProps} />
               </Container>

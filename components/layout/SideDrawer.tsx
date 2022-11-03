@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import CreateIcon from "@mui/icons-material/Create";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import LoginIcon from '@mui/icons-material/Login';
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import Link from "next/link";
 
@@ -51,10 +52,10 @@ function SideDrawer() {
           </Grid>
         </Link>
 
-        <Link href="/">
+        <Link href="/auth/login">
           <Grid className="sidenav" display="flex">
             <Grid sx={{ display: "flex" }}>
-              <CreateIcon />
+              <LoginIcon/>
               <Grid
                 style={{
                   display: display ? "flex" : "none",

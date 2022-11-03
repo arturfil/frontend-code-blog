@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios, { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
 import agent from "../helpers/agent";
 import { Post } from "../interfaces/Post";
-
-export const slice = "";
 
 interface PostState {
     posts: Post[] | null;
@@ -60,7 +57,8 @@ export const updatePost = createAsyncThunk<Post, Object|any>(
     async (data, thunkAPI) => {
         const {id, ...obj} = data
         try {
-            const response:any = await agent.put(`/posts/post/${data.id}`, JSON.stringify(obj));
+            const response:any = 
+                await agent.put(`/posts/post/${data.id}`, JSON.stringify(obj));
             return response.data;
         } catch (error:any) {
             console.log("ERROR", error);

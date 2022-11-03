@@ -29,7 +29,7 @@ a {
 }
 
 .button {
-  /* text-transform: lowercase; */
+  border-radius: 9px;
   background-image: linear-gradient(90deg, rgb(207, 82, 37), rgb(207, 40, 37))
 }
 

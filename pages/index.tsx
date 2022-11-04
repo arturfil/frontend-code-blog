@@ -10,7 +10,7 @@ import { getAllPosts } from "../features/postSlice";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import image from "./images/image2.png";
 
-const Home: NextPage = () => {
+const Home = () => {
   const dispatch = useAppDispatch();
   const { posts } = useAppSelector((state) => state.post);
 

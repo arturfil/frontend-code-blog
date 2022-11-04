@@ -13,10 +13,11 @@ agent.interceptors.request.use(async (config) => {
     let token;
     try {
         const jwt_data: JWTData = await JSON.parse(
-            localStorage.getItem(jwt_string!)!
+            localStorage.getItem(process.env.NEXT_PUBLIC_JWT!)!
         )
         token = jwt_data.token;
-        if (token) config.headers!.Authorization = token;
+        console.log("AGENTAPI", token);
+        // if (token) config.headers!.Authorization = token;
     } catch (error) {
         console.log(error);
     }

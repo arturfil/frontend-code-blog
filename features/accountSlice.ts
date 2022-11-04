@@ -20,8 +20,9 @@ export const loginUser = createAsyncThunk<LoginResponse, Object>(
     "account/loginUser",
     async (data, thunkAPI) => {
         try {
-            const response = await agent.post(`/auth/login`, JSON.stringify(data));
-            localStorage.setItem("jwt", response.data.token);
+            const response:any = await agent.post(`/auth/login`, JSON.stringify(data));
+            const { token } = response.data
+            localStorage.setItem("jwt-code-blog", JSON.stringify({token}));
             toast.success("User Logged In");
             return response.data;
         } catch (error) {
@@ -34,8 +35,11 @@ export const accountSlice = createSlice({
     name: "account",
     initialState,
     reducers: {
-        setLoggedInUser: (state, action) => {
+        setLogIn: (state, action) => {
             state.loggedIn = action.payload;
+        },
+        setLogOut: (state) => {
+            state.loggedIn = false;
         }
     },
     extraReducers: (builder) =>{ 
@@ -44,4 +48,7 @@ export const accountSlice = createSlice({
             state.loggedIn = true;
         });
     }
-})
+});
+
+export const { setLogOut, setLogIn } = accountSlice.actions;
+export default accountSlice.reducer;

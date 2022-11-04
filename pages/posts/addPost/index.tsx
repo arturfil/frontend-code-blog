@@ -91,4 +91,5 @@ function AddPost() {
   );
 }
 
+AddPost.requiredAuh = true;
 export default AddPost;

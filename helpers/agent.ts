@@ -12,12 +12,12 @@ const agent = axios.create({baseURL});
 agent.interceptors.request.use(async (config) => {
     let token;
     try {
-        const jwt_data: JWTData = await JSON.parse(
+        const jwt_data: JWTData = JSON.parse(
             localStorage.getItem(process.env.NEXT_PUBLIC_JWT!)!
         )
         token = jwt_data.token;
         console.log("AGENTAPI", token);
-        // if (token) config.headers!.Authorization = token;
+        config.headers!.Authorization = "Bearer " + token;
     } catch (error) {
         console.log(error);
     }

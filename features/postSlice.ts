@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { toast } from "react-toastify";
 import agent from "../helpers/agent";
 import { Post } from "../interfaces/Post";
 
@@ -20,7 +22,7 @@ export const getAllPosts = createAsyncThunk<Post[]>(
     "post/getAllBlogs",
     async (_, thunkAPI) => {
         try {
-            const response = await agent.get("/posts");
+            const response = await agent.get("/posts")
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({error})
@@ -44,7 +46,12 @@ export const createPost = createAsyncThunk<Post, Object>(
     "post/createPost",
     async (data, thunkAPI) => {
         try {
+            let {token} = JSON.parse(localStorage.getItem(process.env.NEXT_PUBLIC_JWT!)!);
+            let headers = {
+                Authorization: `Bearer ${token}`
+            }
             const response = await agent.post(`/posts/post`, JSON.stringify(data));
+            toast.success("Added Post Successfully!")
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({error})
@@ -59,9 +66,11 @@ export const updatePost = createAsyncThunk<Post, Object|any>(
         try {
             const response:any = 
                 await agent.put(`/posts/post/${data.id}`, JSON.stringify(obj));
+            toast.success("Post Updated Successfully!")
             return response.data;
         } catch (error:any) {
-            console.log("ERROR", error);
+            toast.error(error.message);
+            console.log(error.message)
             return thunkAPI.rejectWithValue({error});
         }
     }
